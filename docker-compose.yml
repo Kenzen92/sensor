@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  python-app:
+    build:
+      context: ./python
+      dockerfile: Dockerfile
+    container_name: python_app
+    volumes:
+      - ./python:/app
+    command: python main.py
+
+
+
