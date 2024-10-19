@@ -20,7 +20,7 @@ type Reading struct {
 
 func main() {
 	// Connect to SQLite database
-	db, err := sql.Open("sqlite3", "./python/sensor.db")
+	db, err := sql.Open("sqlite3", "/shared/sensor.db")
 	if err != nil {
 		log.Fatal("Failed to connect to the database:", err)
 	}

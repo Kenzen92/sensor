@@ -1,3 +1,4 @@
+import os
 import time
 import board
 import busio
@@ -8,6 +9,9 @@ import sqlite3
 def main():
     print("Running main")
 
+    # Ensure the shared directory exists
+    os.makedirs('../shared', exist_ok=True)
+
     # Create I2C bus
     i2c = busio.I2C(board.SCL, board.SDA)
 
@@ -15,7 +19,7 @@ def main():
     bme680 = Adafruit_BME680_I2C(i2c)
 
     # Get the database and start filling in values
-    connection = sqlite3.connect('sensor.db')
+    connection = sqlite3.connect('../shared/sensor.db')
     cursor = connection.cursor()
 
     cursor.execute('''
